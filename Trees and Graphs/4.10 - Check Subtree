@@ -1,0 +1,30 @@
+/*
+T1 and T2 are two very large  binary trees, with T1 much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1
+*/
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+bool areIdentical(struct TreeNode * root1, struct TreeNode * root2){
+    if(root1==NULL&&root2==NULL)
+        return true;
+    if(root1==NULL||root2==NULL)
+        return false;
+    return (root1->val == root2->val && areIdentical(root1->left,root2->left) && areIdentical(root1->right,root2->right));
+        
+}
+bool isSubtree(struct TreeNode* s, struct TreeNode* t) {
+    if(t==NULL)
+        return true;
+    if(s==NULL)
+        return false;
+    if(areIdentical(s,t))
+        return true;
+    return isSubtree(s->left,t)||isSubtree(s->right, t);
+    
+}
