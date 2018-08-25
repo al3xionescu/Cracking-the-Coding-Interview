@@ -1,0 +1,34 @@
+/*
+Given two strings, write a method to decide if one is a permutation of the other.
+*/
+
+import java.util.*;
+public class Permutation {
+   public boolean isPerm(String s1, String s2){
+      if(s1.length()!=s2.length()) return false;
+      HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+      for(int i=0;i<s1.length();i++) {
+         char ch = s1.charAt(i);
+         if(map.containsKey(ch) == false){
+            map.put(ch,1);
+         }
+         else{
+            map.put(ch,map.get(ch)+1);
+         }
+      }
+      for(int i=0;i<s2.length();i++){
+         char ch = s2.charAt(i);
+         if(map.containsKey(ch)==false) return false;
+         else {
+            map.put(ch, map.get(ch)-1);
+            if(map.get(ch)==0) map.remove(ch);
+         }
+      }
+   }
+   public static void main(String[] args) {
+      isPerm p1 = new isPerm();
+      System.out.println(p1.isPerm(" "," "));
+      System.out.println(p1.isPerm("yes","yes"));
+      System.out.println(p1.isPerm("no","ont"));
+   }
+}
