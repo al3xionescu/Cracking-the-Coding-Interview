@@ -1,0 +1,23 @@
+/*
+Write a function to determine the number of bits you would need to flip to convert integer A to integer B.
+*/
+
+int bitsSwapRequired(int a, int b){
+   int count = 0;
+   for(int c = a^b; c!=0; c>>1) {
+      count += c & 1;
+   }
+   return count;
+}
+
+We can make it better by continuously flipping the least significant bit and count how long it takes c to reach 0. The operation c = 
+c & (c-1) will clear the least significant bit in c.
+
+
+int bitsSwapRequired(int a, int b){
+   int count = 0;
+   for(int c = a^b; c!=0; c = c & (c-1)) {
+      count++;
+   }
+   return count;
+}
