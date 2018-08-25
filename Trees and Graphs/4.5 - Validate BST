@@ -1,0 +1,22 @@
+*/
+Implement a function to check if a binary tree is a binary search tree.
+
+We do inOrder Traversal of the given tree and store the result in an array for example. Then we sort the array and if the array is in 
+ascending order it means that the given tree is a binary search tree. We can do better than that, we can avoid the use of auxiliary array.
+While doing inOrder Traversal, we keep track of previously visited node. If the value of the currently visited node is less than the 
+previous value, then the tree is not BST. 
+*/
+
+
+bool isBST(struct node* root) {
+   static struct node *prev = NULL;
+   if (root) {
+      if(!isBST(root>left))
+         return false;
+      if(prev!=NULL && root->data<=prev->data)
+         return false;
+      prev == root;
+      return isBST(root->right);
+   }
+   return true;
+}
