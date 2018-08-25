@@ -1,0 +1,12 @@
+/*
+You have 20 bottles of pills, 19 bottles have 1.0 gram pills, but one has pills of weight 1.1 gram. Given a scale that provides an exact 
+measurement, how would you find the heavy bottle? You can only use the scale once.
+*/
+
+SOLUTION:
+
+Get 1 pill from bottle 1, 2 pills from bottle 2, ... , 10 pills from bottle 10.
+Measure the weight.
+If the weight is 0.1 gram more than 55, then the answer is 1.
+...
+If the weight is 0.x gram more than 55, then the answer is x.
