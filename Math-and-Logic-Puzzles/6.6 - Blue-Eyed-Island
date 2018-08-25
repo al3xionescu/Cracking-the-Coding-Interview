@@ -1,0 +1,14 @@
+/*A bunch of people are living on a island. When a visitor comes with a strange order, all blue eyed people must leave the island as soon as possible. There will be a flight out at 8:00 PM every evening. Each person can see everyone else's eye color, but they do not know there own (nor is anyone allowed to tell them). Additionally they do not know how many people have blue eyes, although they do know that at least one person does.
+How many days it will take the blue eyed people to leave?*/
+
+SOLUTION:
+
+Let's assume that there are 100 people on the island.
+CASE 1 : When only one person has blue eyes. He will check other 99 and all will have normal eyes, since there has to be at least one 
+person with blue eyes. He will know he is the one with blue and he will leave the first day.
+CASE 2 : When two persons have blue eyes. Each one of them will check others and the two with blue eyes will see each other and will think,
+this is the guy with blue eyes and should leave. Both will think the same way and none of them will leave. The next day they will see each 
+other and they will think that they also have both eyes because the other 98 don't have. Both will leave the second day.
+CASE N: When N people have blue eyes, each one of them will keep checking others and expecting them to leave until Nth day. Then all of
+them will leave in the Nth day.  
+
